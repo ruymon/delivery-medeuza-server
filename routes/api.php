@@ -19,6 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::controller(OrderController::class)->prefix('api.order')->group(function(){
+Route::controller(OrderController::class)->prefix('order')->name('api.order.')->group(function(){
     Route::post('/create', 'create')->name('create');
 });
