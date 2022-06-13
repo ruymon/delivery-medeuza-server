@@ -40,7 +40,7 @@ class UserController extends Controller
             ['email' => $user->email]
         );
 
-        if($status == Password::RESET_LINK_SENT){
+        if($status != Password::RESET_LINK_SENT){
             session()->flash('danger', 'Could not create user. Please contact IT support.');
             return back();
         }
