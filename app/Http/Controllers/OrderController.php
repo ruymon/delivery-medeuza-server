@@ -12,7 +12,7 @@ class OrderController extends Controller
     {
         Gate::authorize('is-admin');
 
-        $orders = Order::all();
+        $orders = Order::orderBy('id', 'desc')->get();
         
         return view('orders.dashboard', [
             'orders' => $orders
