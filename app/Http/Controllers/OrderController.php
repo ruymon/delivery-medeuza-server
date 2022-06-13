@@ -21,7 +21,7 @@ class OrderController extends Controller
 
     public function create(Request $request)
     {
-        $order = Order::create($request->all());
+        $order = Order::create($request->json()->all());
         return $order;
     }
 }

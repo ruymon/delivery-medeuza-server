@@ -20,5 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::controller(OrderController::class)->prefix('order')->name('api.order.')->group(function(){
-    Route::any('/create', 'create')->name('create');
+    Route::any('/create', 'create')->name('create');    //Should actually be POST. Used ANY due to POC deployment limitations
 });
