@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::controller(OrderController::class)->middleware(['auth'])->prefix('orders')->name('orders.')->group(function(){
+    Route::get('/dashboard', 'dashboard')->name('dashboard');
+});
+
+Route::controller(UserController::class)->middleware(['auth'])->prefix('users')->name('users.')->group(function(){
+    Route::get('/dashboard', 'dashboard')->name('dashboard');
+});
 
 require __DIR__.'/auth.php';
