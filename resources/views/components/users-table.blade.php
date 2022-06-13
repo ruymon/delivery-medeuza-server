@@ -11,7 +11,7 @@
                 <th class="bg-gray-50 px-6 py-3 text-left text-xs font-medium uppercase leading-4 tracking-wider text-gray-500">{{__('users.role.title')}}</th>
                 @if(Auth::user()->admin)
                     <th class="bg-gray-50 px-6 py-3 text-left text-xs font-medium uppercase leading-4 tracking-wider text-gray-500"></th>
-                    <th class="bg-gray-50 px-6 py-3 text-left text-xs font-medium uppercase leading-4 tracking-wider text-gray-500"></th>
+                    <th class="bg-gray-50 px-6 py-3 text-left text-xs font-medium uppercase leading-4 tracking-wider text-gray-500">Criar</th>
                 @endif
             </tr>
             </thead>
