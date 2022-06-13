@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function dashboard()
     {
-        return redirect()->route('orders.dashboard');
+        $users = User::all();
+        return view('users.dashboard', ['users' => $users]);
     }
 }
