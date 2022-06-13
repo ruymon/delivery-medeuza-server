@@ -49,7 +49,7 @@
     <div class="my-4 flex flex-col">
     <span class="mb-2 text-lg font-semibold text-slate-800">{{__('order.victimDetails.address')}}</span>
     <div>
-        <span class="text-sm text-slate-400">Rua Santos Almeida, Número 159 Ap 78, Pompeia</span>
+        <span class="text-sm text-slate-400">{{ $user->street }} - {{ $user->complement }}, {{ $user->district }}. {{ $user->reference }}</span>
     </div>
     </div>
 </div>
