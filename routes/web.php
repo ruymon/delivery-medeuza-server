@@ -25,6 +25,12 @@ Route::controller(OrderController::class)->middleware(['auth'])->prefix('orders'
 
 Route::controller(UserController::class)->middleware(['auth'])->prefix('users')->name('users.')->group(function(){
     Route::get('/dashboard', 'dashboard')->name('dashboard');
+    Route::get('/create', 'renderCreate')->name('create');
+    Route::post('/create', 'createUser')->name('create');
+
+    Route::put('/{user_id}/make-admin', 'makeUserAdmin')->name('make-admin');
+    Route::put('/{user_id}/remove-admin', 'removeUserAdmin')->name('remove-admin');
+    Route::delete('/{user_id}/delete', 'deleteUser')->name('delete');
 });
 
 require __DIR__.'/auth.php';

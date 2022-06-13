@@ -15,8 +15,21 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+
+        <!-- Icon Pack -->
+        <script src="https://unpkg.com/phosphor-icons"></script>
     </head>
     <body class="font-sans antialiased">
+
+        @if(Session::has('success'))
+            <x-alert-bar :param="['success', Session::get('success')]"/>
+        @elseif(Session::has('alert'))
+            <x-alert-bar :param="['alert', Session::get('alert')]"/>
+        @elseif(Session::has('danger'))
+            <x-alert-bar :param="['danger', Session::get('danger')]"/>
+        @endif
+
+
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 

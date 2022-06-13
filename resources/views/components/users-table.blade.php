@@ -11,7 +11,11 @@
                 <th class="bg-gray-50 px-6 py-3 text-left text-xs font-medium uppercase leading-4 tracking-wider text-gray-500">{{__('users.role.title')}}</th>
                 @if(Auth::user()->admin)
                     <th class="bg-gray-50 px-6 py-3 text-left text-xs font-medium uppercase leading-4 tracking-wider text-gray-500"></th>
-                    <th class="bg-gray-50 px-6 py-3 text-left text-xs font-medium uppercase leading-4 tracking-wider text-gray-500">Criar</th>
+                    <th class="bg-gray-50 px-6 py-3 text-left text-xs font-medium uppercase leading-4 tracking-wider text-gray-500">
+                        <a href="{{route('users.create')}}">
+                            Criar
+                        </a>
+                    </th>
                 @endif
             </tr>
             </thead>
@@ -51,9 +55,18 @@
                             @if($user->id == Auth::user()->id)
                                 {{__('users.actions.noAction')}}
                             @elseif($user->admin)
-                                {{__('users.actions.removeAdmin')}}
+                            <form action="{{route('users.remove-admin', $user->id)}}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit">{{__('users.actions.removeAdmin')}}</button>
+                            </form>
+                                
                             @else
-                                {{__('users.actions.makeAdmin')}}
+                            <form action="{{route('users.make-admin', $user->id)}}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit">{{__('users.actions.makeAdmin')}}</button>
+                            </form>                            
                             @endif
                         
                         </td>
@@ -61,7 +74,11 @@
                         
                         <td class="whitespace-no-wrap px-6 py-4 text-sm leading-5 text-gray-500">
                             @if($user->id !== Auth::user()->id)
-                            {{__('users.actions.delete')}}
+                            <form action="{{route('users.delete', $user->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">{{__('users.actions.delete')}}</button>
+                            </form> 
                             @endif  
                         </td>
                         

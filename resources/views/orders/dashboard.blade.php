@@ -8,4 +8,13 @@
 
         </div>
     </div>
+
+    <!--- TODO: MAKE THIS PROPERLY USING LIVEWIRE OR LARAVEL ECHO 
+        (Sorry, we were running out of time, hope you guys don't mind a temporary bodge.) -->
+    <script>
+        setTimeout( function() {
+            window.location.reload();
+        }, 10000);
+    </script>
+
 </x-app-layout>
